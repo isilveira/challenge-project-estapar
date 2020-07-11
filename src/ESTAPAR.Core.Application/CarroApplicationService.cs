@@ -15,5 +15,10 @@ namespace ESTAPAR.Core.Application
         {
             CarroDomainService = carroDomainService;
         }
+
+        public int GetTotal()
+        {
+            return CarroDomainService.GetTotal();
+        }
     }
 }

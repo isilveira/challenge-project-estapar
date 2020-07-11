@@ -60,5 +60,10 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
         {
             return EstaparDbContext.Set<Carro>().Any(x => x.CarroID == key && x.Manobras.Any());
         }
+
+        public int GetTotal()
+        {
+            return EstaparDbContext.Set<Carro>().Count();
+        }
     }
 }

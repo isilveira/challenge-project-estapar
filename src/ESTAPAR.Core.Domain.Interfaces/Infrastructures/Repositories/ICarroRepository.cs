@@ -7,5 +7,6 @@ namespace ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories
     {
         bool ExisteOutroCarroComMesmaPlaca(int carroID, string placa);
         bool ExistemManobrasParaOCarro(int key);
+        int GetTotal();
     }
 }

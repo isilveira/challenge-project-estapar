@@ -59,5 +59,10 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
         {
             return EstaparDbContext.Set<Manobrista>().Any(x => x.ManobristaID == key && x.Manobras.Any());
         }
+
+        public int GetTotal()
+        {
+            return EstaparDbContext.Set<Manobrista>().Count();
+        }
     }
 }

@@ -42,5 +42,10 @@ namespace ESTAPAR.Core.Domain.Services
 
             base.Delete(key);
         }
+
+        public int GetTotal()
+        {
+            return ManobristaRepository.GetTotal();
+        }
     }
 }

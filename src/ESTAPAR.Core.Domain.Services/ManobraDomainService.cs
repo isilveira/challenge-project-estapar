@@ -24,5 +24,10 @@ namespace ESTAPAR.Core.Domain.Services
                 ManobraRepository.Update(entity);
             }
         }
+
+        public int GetTotal()
+        {
+            return ManobraRepository.GetTotal();
+        }
     }
 }

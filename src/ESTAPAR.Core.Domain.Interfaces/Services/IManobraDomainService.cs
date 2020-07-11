@@ -5,5 +5,6 @@ namespace ESTAPAR.Core.Domain.Interfaces.Services
 {
     public interface IManobraDomainService : IDomainService<int, Manobra>
     {
+        int GetTotal();
     }
 }

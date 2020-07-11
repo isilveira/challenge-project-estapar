@@ -49,5 +49,10 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
             EstaparDbContext.SaveChanges();
         }
+
+        public int GetTotal()
+        {
+            return EstaparDbContext.Set<Manobra>().Count();
+        }
     }
 }

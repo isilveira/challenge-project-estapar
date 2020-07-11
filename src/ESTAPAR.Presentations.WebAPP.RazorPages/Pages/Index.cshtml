@@ -8,3 +8,36 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Carros</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Model.TotalCarros registros</h6>
+                <a asp-page="./carros/index" class="card-link">Lista</a>
+                <a asp-page="./carros/novo" class="card-link">Novo</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Manobristas</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Model.TotalManobristas registros</h6>
+                <a asp-page="./manobristas/index" class="card-link">Lista</a>
+                <a asp-page="./manobristas/novo" class="card-link">Novo</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Manobras</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Model.TotalManobras registros</h6>
+                <a asp-page="./manobras/index" class="card-link">Lista</a>
+                <a asp-page="./manobras/novo" class="card-link">Novo</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,5 +14,10 @@ namespace ESTAPAR.Core.Application
         {
             ManobraDomainService = manobraDomainService;
         }
+
+        public int GetTotal()
+        {
+            return ManobraDomainService.GetTotal();
+        }
     }
 }

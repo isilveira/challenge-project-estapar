@@ -7,5 +7,6 @@ namespace ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories
     {
         bool ExisteOutroManobristaComOMesmoCPF(int manobristaID, string cPF);
         bool ExistemManobrasParaOManobrista(int key);
+        int GetTotal();
     }
 }
