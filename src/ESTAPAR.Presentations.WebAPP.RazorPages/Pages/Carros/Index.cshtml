@@ -24,19 +24,21 @@
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo</th>
                         <th scope="col">Placa</th>
-                        <th scope="col"></th>
+                        <th scope="col" style="width: 32px;"></th>
+                        <th scope="col" style="width: 32px;"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var carro in Model.Carros)
                     {
-                        <tr>
-                            <td scope="row">@carro.IdCarro</td>
-                            <td>@carro.Marca</td>
-                            <td>@carro.Modelo</td>
-                            <td>@carro.Placa</td>
-                            <td><a asp-page="./Editar" asp-route-id="@carro.IdCarro">Editar</a> | <a asp-page="./Excluir" asp-route-id="@carro.IdCarro">Excluir</a></td>
-                        </tr>
+                    <tr>
+                        <td scope="row">@carro.IdCarro</td>
+                        <td>@carro.Marca</td>
+                        <td>@carro.Modelo</td>
+                        <td>@carro.Placa</td>
+                        <td><a asp-page="./Editar" asp-route-id="@carro.IdCarro" title="Editar" class="text-primary"><i class="far fa-edit"></i></a></td>
+                        <td><a asp-page="./Excluir" asp-route-id="@carro.IdCarro" title="Excluir" class="text-danger"><i class="far fa-trash-alt"></i></a></td>
+                    </tr>
                     }
                 </tbody>
             </table>
