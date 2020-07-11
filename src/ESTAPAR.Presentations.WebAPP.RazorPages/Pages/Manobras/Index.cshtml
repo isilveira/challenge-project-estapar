@@ -1,8 +1,52 @@
 ﻿@page
 @model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Manobras.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Manobras";
 }
 
-<h1>Manobras</h1>
+<h4>Manobras</h4>
+<hr />
 
+<div class="row">
+    <div class="offset-md-10 col-md-2">
+        <a class="btn btn-block btn-outline-primary" asp-page="./Nova">Nova</a>
+    </div>
+</div>
+@if (Model.Manobras.Count > 0)
+{
+    <hr />
+    <div class="row">
+        <div class="col">
+            <table class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Manobrista</th>
+                        <th scope="col">Carro</th>
+                        <th scope="col" style="width: 32px;"></th>
+                        <th scope="col" style="width: 32px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var carro in Model.Manobras)
+                    {
+                        <tr>
+                            <td scope="row">@carro.ManobraID</td>
+                            <td>@carro.DescricaoManobrista</td>
+                            <td>@carro.DescricaoCarro</td>
+                            
+                            <td><a asp-page="./Editar" asp-route-id="@carro.ManobraID" title="Editar" class="text-primary"><i class="far fa-edit"></i></a></td>
+                            <td><a asp-page="./Excluir" asp-route-id="@carro.ManobraID" title="Excluir" class="text-danger"><i class="far fa-trash-alt"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="offset-md-10 col-md-2">
+            <a class="btn btn-block btn-outline-primary" asp-page="./Nova">Nova</a>
+        </div>
+    </div>
+}

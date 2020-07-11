@@ -1,31 +1,26 @@
-﻿@page "{id:int}"
-@model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros.ExcluirModel
+﻿@page
+@model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Manobras.NovaModel
 @{
-    ViewData["Title"] = "Excluir carro";
+    ViewData["Title"] = "Nova manobra";
 }
 
-<h4>Excluir carro</h4>
-<h6 class="text-muted">Deseja confirmar a exclusão do carro?</h6>
+<h4>Nova manobra</h4>
 <hr />
 
 <form method="post">
     <div class="row">
         <div class="col">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="Input.CarroID" type="hidden" />
             <div class="form-group">
-                <label asp-for="Input.Marca"></label>
-                <input class="form-control" asp-for="Input.Marca" disabled>
+                <label asp-for="Input.ManobristaID"></label>
+                <select asp-for="Input.ManobristaID" asp-items="Model.Manobristas" class="form-control"></select>
+                <span asp-validation-for="Input.ManobristaID" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Input.Modelo"></label>
-                <input class="form-control" asp-for="Input.Modelo" disabled>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Input.Placa"></label>
-                <input class="form-control" asp-for="Input.Placa" disabled>
+                <label asp-for="Input.CarroID"></label>
+                <select asp-for="Input.CarroID" asp-items="Model.Carros" class="form-control"></select>
+                <span asp-validation-for="Input.CarroID" class="text-danger"></span>
             </div>
 
             <div class="row">
@@ -39,7 +34,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="offset-md-8 col-md-4">
-                            <button id="delete-button" type="submit" class="btn btn-block btn-danger">Excluir</button>
+                            <button id="save-button" type="submit" class="btn btn-block btn-primary">Salvar</button>
                         </div>
                     </div>
                 </div>

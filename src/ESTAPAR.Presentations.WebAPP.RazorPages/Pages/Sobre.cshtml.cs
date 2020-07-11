@@ -8,15 +8,8 @@ using Microsoft.Extensions.Logging;
 
 namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages
 {
-    public class PrivacyModel : PageModel
+    public class SobreModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
-
-        public PrivacyModel(ILogger<PrivacyModel> logger)
-        {
-            _logger = logger;
-        }
-
         public void OnGet()
         {
         }

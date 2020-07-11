@@ -1,6 +1,7 @@
 ﻿using ESTAPAR.Core.Domain.Entities;
 using ESTAPAR.Core.Domain.Interfaces.Infrastructures.Contexts;
 using ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,10 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
         public List<Manobra> GetAll()
         {
-            return EstaparDbContext.Set<Manobra>().ToList();
+            return EstaparDbContext.Set<Manobra>()
+                .Include(x => x.Manobrista)
+                .Include(x => x.Carro)
+                .ToList();
         }
 
         public Manobra GetByKey(int key)

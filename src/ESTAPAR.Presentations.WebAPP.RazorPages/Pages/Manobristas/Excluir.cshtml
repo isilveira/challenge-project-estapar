@@ -1,17 +1,17 @@
 ﻿@page "{id:int}"
 @model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Manobristas.ExcluirModel
 @{
-    ViewData["Title"] = "Excluir";
+    ViewData["Title"] = "Excluir manobrista";
 }
 
-<h4>Excluir</h4>
+<h4>Excluir manobrista</h4>
 <h6 class="text-muted">Deseja confirmar a exclusão do manobrista?</h6>
 <hr />
 
 <form method="post">
     <div class="row">
         <div class="col">
-            <div asp-validation-summary="All" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="Input.ManobristaID" type="hidden" />
             <div class="form-group">
                 <label asp-for="Input.Nome"></label>
