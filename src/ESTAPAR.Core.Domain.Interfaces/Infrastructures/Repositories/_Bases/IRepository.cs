@@ -10,7 +10,7 @@ namespace ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories.Bases
     {
         List<TEntity> GetAll();
         TEntity GetByKey(TKey key);
-        void Update(TEntity entity);
-        void Delete(TKey entity);
+        void Update(TEntity changedEntity);
+        void Delete(TKey key);
     }
 }

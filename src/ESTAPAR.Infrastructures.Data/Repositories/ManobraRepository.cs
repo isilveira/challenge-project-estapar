@@ -8,35 +8,35 @@ using System.Text;
 
 namespace ESTAPAR.Infrastructures.Data.Repositories
 {
-    public class ManobristaRepository : IManobristaRepository
+    public class ManobraRepository : IManobraRepository
     {
         private IEstaparDbContext EstaparDbContext { get; set; }
-        public ManobristaRepository(IEstaparDbContext estaparDbContext)
+        public ManobraRepository(IEstaparDbContext estaparDbContext)
         {
             EstaparDbContext = estaparDbContext;
         }
         public void Delete(int key)
         {
-            var entity = EstaparDbContext.Set<Manobrista>().SingleOrDefault(x => x.IdManobrista == key);
+            var entity = EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.IdManobra == key);
 
-            EstaparDbContext.Set<Manobrista>().Remove(entity);
+            EstaparDbContext.Set<Manobra>().Remove(entity);
 
             EstaparDbContext.SaveChanges();
         }
 
-        public List<Manobrista> GetAll()
+        public List<Manobra> GetAll()
         {
-            return EstaparDbContext.Set<Manobrista>().ToList();
+            return EstaparDbContext.Set<Manobra>().ToList();
         }
 
-        public Manobrista GetByKey(int key)
+        public Manobra GetByKey(int key)
         {
-            return EstaparDbContext.Set<Manobrista>().SingleOrDefault(x => x.IdManobrista == key);
+            return EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.IdManobra == key);
         }
 
-        public void Update(Manobrista changedEntity)
+        public void Update(Manobra changedEntity)
         {
-            var dbEntity = EstaparDbContext.Set<Manobrista>().SingleOrDefault(x => x.IdManobrista == changedEntity.IdManobrista);
+            var dbEntity = EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.IdManobra == changedEntity.IdManobra);
 
             EstaparDbContext.ApplyChanges(dbEntity, changedEntity);
 

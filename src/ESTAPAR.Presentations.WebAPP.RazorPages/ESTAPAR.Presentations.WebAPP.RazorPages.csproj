@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ESTAPAR.Middleware\ESTAPAR.Middleware.csproj" />
+  </ItemGroup>
+
 </Project>
