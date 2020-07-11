@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ESTAPAR.Core.Domain.Interfaces.Infrastructures.Contexts
 {
-    public interface IEstapardbContext
+    public interface IEstaparDbContext
     {
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
         void ApplyChanges<TEntity>(TEntity dbEntity, TEntity changedEntity);
