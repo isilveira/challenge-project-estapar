@@ -5,9 +5,47 @@
 }
 
 <h4>Carros</h4>
-<hr/>
+<hr />
 
-@foreach(var carro in Model.Carros)
+<div class="row">
+    <div class="offset-md-10 col-md-2">
+        <a class="btn btn-block btn-outline-primary" asp-page="./Novo">Novo</a>
+    </div>
+</div>
+@if (Model.Carros.Count > 0)
 {
-    <text>#@carro.IdCarro - @carro.Marca - @carro.Modelo - @carro.Placa</text><br/>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <table class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Placa</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var carro in Model.Carros)
+                    {
+                        <tr>
+                            <td scope="row">@carro.IdCarro</td>
+                            <td>@carro.Marca</td>
+                            <td>@carro.Modelo</td>
+                            <td>@carro.Placa</td>
+                            <td><a asp-page="./Editar" asp-route-id="@carro.IdCarro">Editar</a> | <a asp-page="./Excluir" asp-route-id="@carro.IdCarro">Excluir</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="offset-md-10 col-md-2">
+            <a class="btn btn-block btn-outline-primary" asp-page="./Novo">Novo</a>
+        </div>
+    </div>
 }
