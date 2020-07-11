@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories.Bases
+namespace ESTAPAR.Core.Domain.Interfaces.Services.Base
 {
-    public interface IRepository<TKey, TEntity>
+    public interface IDomainService<TKey, TEntity>
         where TKey : struct
         where TEntity : class
     {
         List<TEntity> GetAll();
         TEntity GetByKey(TKey key);
-        void Insert(TEntity newEntity);
-        void Update(TEntity changedEntity);
+        void Save(TEntity changedEntity);
         void Delete(TKey key);
     }
 }

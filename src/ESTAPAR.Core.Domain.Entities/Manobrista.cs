@@ -5,7 +5,7 @@ namespace ESTAPAR.Core.Domain.Entities
 {
     public class Manobrista
     {
-        public int IdManobrista { get; set; }
+        public int ManobristaID { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
         public DateTime DataNascimento { get; set; }

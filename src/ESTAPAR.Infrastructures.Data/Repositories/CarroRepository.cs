@@ -1,6 +1,7 @@
 ﻿using ESTAPAR.Core.Domain.Entities;
 using ESTAPAR.Core.Domain.Interfaces.Infrastructures.Contexts;
 using ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories;
+using ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories.Bases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
         }
         public void Delete(int key)
         {
-            var entity = EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.IdCarro == key);
+            var entity = EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.CarroID == key);
 
             EstaparDbContext.Set<Carro>().Remove(entity);
 
@@ -31,14 +32,21 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
         public Carro GetByKey(int key)
         {
-            return EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.IdCarro == key);
+            return EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.CarroID == key);
         }
 
         public void Update(Carro changedEntity)
         {
-            var dbEntity = EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.IdCarro == changedEntity.IdCarro);
+            var dbEntity = EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.CarroID == changedEntity.CarroID);
 
             EstaparDbContext.ApplyChanges(dbEntity, changedEntity);
+
+            EstaparDbContext.SaveChanges();
+        }
+
+        public void Insert(Carro newEntity)
+        {
+            EstaparDbContext.Set<Carro>().Add(newEntity);
 
             EstaparDbContext.SaveChanges();
         }

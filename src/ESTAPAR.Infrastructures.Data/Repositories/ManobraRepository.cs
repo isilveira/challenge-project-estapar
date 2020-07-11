@@ -17,7 +17,7 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
         }
         public void Delete(int key)
         {
-            var entity = EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.IdManobra == key);
+            var entity = EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.ManobraID == key);
 
             EstaparDbContext.Set<Manobra>().Remove(entity);
 
@@ -31,14 +31,21 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
         public Manobra GetByKey(int key)
         {
-            return EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.IdManobra == key);
+            return EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.ManobraID == key);
         }
 
         public void Update(Manobra changedEntity)
         {
-            var dbEntity = EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.IdManobra == changedEntity.IdManobra);
+            var dbEntity = EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.ManobraID == changedEntity.ManobraID);
 
             EstaparDbContext.ApplyChanges(dbEntity, changedEntity);
+
+            EstaparDbContext.SaveChanges();
+        }
+
+        public void Insert(Manobra newEntity)
+        {
+            EstaparDbContext.Set<Manobra>().Add(newEntity);
 
             EstaparDbContext.SaveChanges();
         }

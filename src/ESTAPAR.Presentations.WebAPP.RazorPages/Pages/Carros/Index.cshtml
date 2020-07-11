@@ -1,0 +1,13 @@
+﻿@page
+@model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Carros</h4>
+<hr/>
+
+@foreach(var carro in Model.Carros)
+{
+    <text>#@carro.IdCarro - @carro.Marca - @carro.Modelo - @carro.Placa</text><br/>
+}
