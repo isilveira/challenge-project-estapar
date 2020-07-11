@@ -1,16 +1,16 @@
 ﻿@page "{id:int}"
 @model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Manobristas.EditarModel
 @{
-    ViewData["Title"] = "Editar";
+    ViewData["Title"] = "Editar manobrista";
 }
 
-<h4>Editar</h4>
+<h4>Editar manobrista</h4>
 <hr />
 
 <form method="post">
     <div class="row">
         <div class="col">
-            <div asp-validation-summary="All" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="Input.ManobristaID" type="hidden" />
             <div class="form-group">
                 <label asp-for="Input.Nome"></label>

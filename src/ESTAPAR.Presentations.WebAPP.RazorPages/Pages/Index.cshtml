@@ -5,8 +5,8 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bem-vindo!</h1>
+    <p>Desafio da Estapar, por Ítalo Silveira.</p>
 </div>
 
 <div class="row">
@@ -15,8 +15,11 @@
             <div class="card-body">
                 <h5 class="card-title">Carros</h5>
                 <h6 class="card-subtitle mb-2 text-muted">@Model.TotalCarros registros</h6>
-                <a asp-page="./carros/index" class="card-link">Lista</a>
-                <a asp-page="./carros/novo" class="card-link">Novo</a>
+                <div class="text-center text-secondary mb-3">
+                    <i class="fas fa-car fa-7x"></i>
+                </div>
+                <a asp-page="./carros/index" class="btn btn-block btn-outline-secondary">Lista de carros</a>
+                <a asp-page="./carros/novo" class="btn btn-block btn-outline-primary">Novo carro</a>
             </div>
         </div>
     </div>
@@ -25,8 +28,11 @@
             <div class="card-body">
                 <h5 class="card-title">Manobristas</h5>
                 <h6 class="card-subtitle mb-2 text-muted">@Model.TotalManobristas registros</h6>
-                <a asp-page="./manobristas/index" class="card-link">Lista</a>
-                <a asp-page="./manobristas/novo" class="card-link">Novo</a>
+                <div class="text-center text-secondary mb-3">
+                    <i class="fas fa-users fa-7x"></i>
+                </div>
+                <a asp-page="./manobristas/index" class="btn btn-block btn-outline-secondary">Lista de manobristas</a>
+                <a asp-page="./manobristas/novo" class="btn btn-block btn-outline-primary">Novo manobrista</a>
             </div>
         </div>
     </div>
@@ -35,8 +41,11 @@
             <div class="card-body">
                 <h5 class="card-title">Manobras</h5>
                 <h6 class="card-subtitle mb-2 text-muted">@Model.TotalManobras registros</h6>
-                <a asp-page="./manobras/index" class="card-link">Lista</a>
-                <a asp-page="./manobras/novo" class="card-link">Novo</a>
+                <div class="text-center text-secondary mb-3">
+                    <i class="fas fa-id-card fa-7x"></i>
+                </div>
+                <a asp-page="./manobras/index" class="btn btn-block btn-outline-secondary">Lista de manobras</a>
+                <a asp-page="./manobras/nova" class="btn btn-block btn-outline-primary">Nova manobra</a>
             </div>
         </div>
     </div>

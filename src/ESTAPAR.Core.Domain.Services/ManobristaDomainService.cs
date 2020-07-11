@@ -18,7 +18,10 @@ namespace ESTAPAR.Core.Domain.Services
 
         public override void Save(Manobrista entity)
         {
-            if(ManobristaRepository.ExisteOutroManobristaComOMesmoCPF(entity.ManobristaID, entity.CPF))
+            entity.RemoveCPFMask();
+            entity.AddCPFMask();
+
+            if (ManobristaRepository.ExisteOutroManobristaComOMesmoCPF(entity.ManobristaID, entity.CPF))
             {
                 throw new Exception("Já existe um manobrista cadastrado com esse CPF!");
             }
