@@ -7,49 +7,45 @@ using ESTAPAR.Core.Application;
 using ESTAPAR.Core.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros
+namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Manobristas
 {
     public class EditarModel : PageModel
     {
-        private CarroApplicationService CarroApplicationService { get; set; }
-
+        private ManobristaApplicationService ManobristaApplicationService { get; set; }
         [BindProperty]
         public InputModel Input { get; set; }
-        public EditarModel(CarroApplicationService carroApplicationService)
+        public EditarModel(ManobristaApplicationService manobristaApplicationService)
         {
-            CarroApplicationService = carroApplicationService;
+            ManobristaApplicationService = manobristaApplicationService;
         }
-
         public void OnGet([FromRoute] int id)
         {
-            var carro = CarroApplicationService.GetByKey(id);
+            var manobrista = ManobristaApplicationService.GetByKey(id);
 
             Input = new InputModel
             {
-                CarroID = carro.CarroID,
-                Marca = carro.Marca,
-                Modelo = carro.Modelo,
-                Placa = carro.Placa
+                ManobristaID = manobrista.ManobristaID,
+                Nome = manobrista.Nome,
+                CPF = manobrista.CPF,
+                DataNascimento = manobrista.DataNascimento
             };
         }
-
         public ActionResult OnPost()
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var carro = new Carro
+                    var manobrista = new Manobrista
                     {
-                        CarroID = Input.CarroID,
-                        Marca = Input.Marca,
-                        Modelo = Input.Modelo,
-                        Placa = Input.Placa
+                        ManobristaID = Input.ManobristaID,
+                        Nome = Input.Nome,
+                        CPF = Input.CPF,
+                        DataNascimento = Input.DataNascimento
                     };
 
-                    CarroApplicationService.Save(carro);
+                    ManobristaApplicationService.Save(manobrista);
 
                     return RedirectToPage("./Index");
                 }
@@ -66,18 +62,19 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros
         public class InputModel
         {
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório!")]
-            public int CarroID { get; set; }
+            public int ManobristaID { get; set; }
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório!")]
-            [Display(Name = "Marca")]
-            public string Marca { get; set; }
+            [Display(Name = "Nome")]
+            public string Nome { get; set; }
 
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório!")]
-            [Display(Name = "Modelo")]
-            public string Modelo { get; set; }
+            [Display(Name = "CPF")]
+            public string CPF { get; set; }
 
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório!")]
-            [Display(Name = "Placa")]
-            public string Placa { get; set; }
+            [Display(Name = "Data de Nascimento")]
+            [DataType(DataType.Date)]
+            public DateTime DataNascimento { get; set; }
         }
     }
 }

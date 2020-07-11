@@ -23,7 +23,7 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros
             Carros = CarroApplicationService.GetAll()
                 .Select(carro=> 
                     new CarroViewModel { 
-                        IdCarro = carro.CarroID,
+                        CarroID = carro.CarroID,
                         Marca = carro.Marca,
                         Modelo = carro.Modelo,
                         Placa = carro.Placa
@@ -33,7 +33,7 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros
 
         public class CarroViewModel
         {
-            public int IdCarro { get; set; }
+            public int CarroID { get; set; }
             public string Marca { get; set; }
             public string Modelo { get; set; }
             public string Placa { get; set; }

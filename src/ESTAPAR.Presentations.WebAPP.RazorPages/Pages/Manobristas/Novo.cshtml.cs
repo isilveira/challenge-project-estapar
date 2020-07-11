@@ -8,37 +8,36 @@ using ESTAPAR.Core.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros
+namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Manobristas
 {
     public class NovoModel : PageModel
     {
-        private CarroApplicationService CarroApplicationService { get; set; }
-
+        private ManobristaApplicationService ManobristaApplicationService { get; set; }
         [BindProperty]
         public InputModel Input { get; set; }
-        public NovoModel(CarroApplicationService carroApplicationService)
+        public NovoModel(ManobristaApplicationService manobristaApplicationService)
         {
-            CarroApplicationService = carroApplicationService;
+            ManobristaApplicationService = manobristaApplicationService;
         }
+
         public void OnGet()
         {
 
         }
-
         public ActionResult OnPost()
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var carro = new Carro
+                    var manobrista = new Manobrista
                     {
-                        Marca = Input.Marca,
-                        Modelo = Input.Modelo,
-                        Placa = Input.Placa
+                        Nome = Input.Nome,
+                        CPF = Input.CPF,
+                        DataNascimento = Input.DataNascimento
                     };
 
-                    CarroApplicationService.Save(carro);
+                    ManobristaApplicationService.Save(manobrista);
 
                     return RedirectToPage("./Index");
                 }
@@ -48,7 +47,6 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
-
                 return Page();
             }
         }
@@ -56,16 +54,17 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros
         public class InputModel
         {
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório!")]
-            [Display(Name = "Marca")]
-            public string Marca { get; set; }
+            [Display(Name = "Nome")]
+            public string Nome { get; set; }
 
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório!")]
-            [Display(Name = "Modelo")]
-            public string Modelo { get; set; }
+            [Display(Name = "CPF")]
+            public string CPF { get; set; }
 
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0} é obrigatório!")]
-            [Display(Name = "Placa")]
-            public string Placa { get; set; }
+            [Display(Name = "Data de Nascimento")]
+            [DataType(DataType.Date)]
+            public DateTime DataNascimento { get; set; }
         }
     }
 }

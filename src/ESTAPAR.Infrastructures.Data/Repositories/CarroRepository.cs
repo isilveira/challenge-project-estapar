@@ -50,5 +50,15 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
             EstaparDbContext.SaveChanges();
         }
+
+        public bool ExisteOutroCarroComMesmaPlaca(int carroID, string placa)
+        {
+            return EstaparDbContext.Set<Carro>().Any(x => x.CarroID != carroID && x.Placa == placa);
+        }
+
+        public bool ExistemManobrasParaOCarro(int key)
+        {
+            return EstaparDbContext.Set<Carro>().Any(x => x.CarroID == key && x.Manobras.Any());
+        }
     }
 }

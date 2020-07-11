@@ -1,32 +1,33 @@
-﻿@page
-@model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros.NovoModel
+﻿@page "{id:int}"
+@model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Manobristas.EditarModel
 @{
-    ViewData["Title"] = "Novo";
+    ViewData["Title"] = "Editar";
 }
 
-<h4>Novo</h4>
+<h4>Editar</h4>
 <hr />
 
 <form method="post">
     <div class="row">
         <div class="col">
             <div asp-validation-summary="All" class="text-danger"></div>
+            <input asp-for="Input.ManobristaID" type="hidden" />
             <div class="form-group">
-                <label asp-for="Input.Marca"></label>
-                <input class="form-control" asp-for="Input.Marca">
-                <span asp-validation-for="Input.Marca" class="text-danger"></span>
+                <label asp-for="Input.Nome"></label>
+                <input class="form-control" asp-for="Input.Nome">
+                <span asp-validation-for="Input.Nome" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Input.Modelo"></label>
-                <input class="form-control" asp-for="Input.Modelo">
-                <span asp-validation-for="Input.Modelo" class="text-danger"></span>
+                <label asp-for="Input.CPF"></label>
+                <input class="form-control" asp-for="Input.CPF">
+                <span asp-validation-for="Input.CPF" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Input.Placa"></label>
-                <input class="form-control" asp-for="Input.Placa">
-                <span asp-validation-for="Input.Placa" class="text-danger"></span>
+                <label asp-for="Input.DataNascimento"></label>
+                <input class="form-control" asp-for="Input.DataNascimento">
+                <span asp-validation-for="Input.DataNascimento" class="text-danger"></span>
             </div>
 
             <div class="row">

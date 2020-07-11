@@ -49,5 +49,15 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
             EstaparDbContext.SaveChanges();
         }
+
+        public bool ExisteOutroManobristaComOMesmoCPF(int manobristaID, string cpf)
+        {
+            return EstaparDbContext.Set<Manobrista>().Any(x => x.ManobristaID != manobristaID && x.CPF == cpf);
+        }
+
+        public bool ExistemManobrasParaOManobrista(int key)
+        {
+            return EstaparDbContext.Set<Manobrista>().Any(x => x.ManobristaID == key && x.Manobras.Any());
+        }
     }
 }

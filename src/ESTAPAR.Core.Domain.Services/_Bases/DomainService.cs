@@ -13,17 +13,17 @@ namespace ESTAPAR.Core.Domain.Services.Bases
         {
             Repository = repository;
         }
-        public void Delete(TKey key)
+        public virtual void Delete(TKey key)
         {
             Repository.Delete(key);
         }
 
-        public List<TEntity> GetAll()
+        public virtual List<TEntity> GetAll()
         {
             return Repository.GetAll();
         }
 
-        public TEntity GetByKey(TKey key)
+        public virtual TEntity GetByKey(TKey key)
         {
             return Repository.GetByKey(key);
         }

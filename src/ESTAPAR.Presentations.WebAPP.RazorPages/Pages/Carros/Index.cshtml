@@ -1,7 +1,7 @@
 ﻿@page
 @model ESTAPAR.Presentations.WebAPP.RazorPages.Pages.Carros.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Carros";
 }
 
 <h4>Carros</h4>
@@ -32,12 +32,12 @@
                     @foreach (var carro in Model.Carros)
                     {
                     <tr>
-                        <td scope="row">@carro.IdCarro</td>
+                        <td scope="row">@carro.CarroID</td>
                         <td>@carro.Marca</td>
                         <td>@carro.Modelo</td>
                         <td>@carro.Placa</td>
-                        <td><a asp-page="./Editar" asp-route-id="@carro.IdCarro" title="Editar" class="text-primary"><i class="far fa-edit"></i></a></td>
-                        <td><a asp-page="./Excluir" asp-route-id="@carro.IdCarro" title="Excluir" class="text-danger"><i class="far fa-trash-alt"></i></a></td>
+                        <td><a asp-page="./Editar" asp-route-id="@carro.CarroID" title="Editar" class="text-primary"><i class="far fa-edit"></i></a></td>
+                        <td><a asp-page="./Excluir" asp-route-id="@carro.CarroID" title="Excluir" class="text-danger"><i class="far fa-trash-alt"></i></a></td>
                     </tr>
                     }
                 </tbody>

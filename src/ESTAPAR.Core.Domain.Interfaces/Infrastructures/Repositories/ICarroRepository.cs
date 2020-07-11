@@ -5,5 +5,7 @@ namespace ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories
 {
     public interface ICarroRepository : IRepository<int, Carro>
     {
+        bool ExisteOutroCarroComMesmaPlaca(int carroID, string placa);
+        bool ExistemManobrasParaOCarro(int key);
     }
 }
