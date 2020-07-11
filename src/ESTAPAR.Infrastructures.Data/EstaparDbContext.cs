@@ -9,9 +9,11 @@ namespace ESTAPAR.Infrastructures.Data
     {
         protected EstaparDbContext()
         {
+            Database.EnsureCreated();
         }
         public EstaparDbContext(DbContextOptions options) : base(options)
         {
+            Database.EnsureCreated();
         }
     }
 }
