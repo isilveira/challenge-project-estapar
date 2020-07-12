@@ -12,11 +12,6 @@ namespace ESTAPAR.Infrastructures.Data
         public DbSet<Carro> Carros { get; set; }
         public DbSet<Manobra> Manobras { get; set; }
         public DbSet<Manobrista> Manobristas { get; set; }
-
-        protected EstaparDbContext()
-        {
-            Database.EnsureCreated();
-        }
         public EstaparDbContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();
