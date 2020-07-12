@@ -9,18 +9,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace ESTAPAR.Middleware
 {
     public static class Configurations
     {
-        public static IServiceCollection AddMiddleware(this IServiceCollection services, IConfiguration configuration, Assembly presentationAssembly)
+        public static IServiceCollection AddMiddleware(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<IEstaparDbContext, EstaparDbContext>(options => 
-                options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
-                    sql=>sql.MigrationsAssembly(presentationAssembly.GetName().Name)));
+            services.AddDbContext<IEstaparDbContext, EstaparDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<ICarroRepository, CarroRepository>();
             services.AddTransient<IManobraRepository, ManobraRepository>();
