@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace ESTAPAR.Presentations.WebAPP.RazorPages
 {
@@ -19,7 +20,9 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMiddleware(Configuration);
+            var assembly = typeof(Startup).GetTypeInfo().Assembly;
+
+            services.AddMiddleware(Configuration, assembly);
 
             services.AddRazorPages();
         }

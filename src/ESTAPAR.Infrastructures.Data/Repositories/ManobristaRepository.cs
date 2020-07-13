@@ -1,6 +1,7 @@
 ﻿using ESTAPAR.Core.Domain.Entities;
 using ESTAPAR.Core.Domain.Interfaces.Infrastructures.Contexts;
 using ESTAPAR.Core.Domain.Interfaces.Infrastructures.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +27,17 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
         public List<Manobrista> GetAll()
         {
-            return EstaparDbContext.Set<Manobrista>().ToList();
+            return EstaparDbContext.Set<Manobrista>()
+                .FromSqlRaw<Manobrista>("spManobristasGetAll")
+                .ToList();
         }
 
         public Manobrista GetByKey(int key)
         {
-            return EstaparDbContext.Set<Manobrista>().SingleOrDefault(x => x.ManobristaID == key);
+            return EstaparDbContext.Set<Manobrista>()
+                .FromSqlRaw<Manobrista>("spManobristasGetByKey {0}", key)
+                .ToList()
+                .SingleOrDefault();
         }
 
         public void Update(Manobrista changedEntity)

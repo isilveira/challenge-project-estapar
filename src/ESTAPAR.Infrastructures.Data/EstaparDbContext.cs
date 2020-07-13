@@ -15,11 +15,11 @@ namespace ESTAPAR.Infrastructures.Data
 
         protected EstaparDbContext()
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
         public EstaparDbContext(DbContextOptions options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         public void ApplyChanges<TEntity>(TEntity dbEntity, TEntity changedEntity) where TEntity : class

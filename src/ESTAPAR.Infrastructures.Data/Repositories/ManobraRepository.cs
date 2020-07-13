@@ -35,7 +35,10 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
         public Manobra GetByKey(int key)
         {
-            return EstaparDbContext.Set<Manobra>().SingleOrDefault(x => x.ManobraID == key);
+            return EstaparDbContext.Set<Manobra>()
+                .FromSqlRaw<Manobra>("spManobrasGetByKey {0}", key)
+                .ToList()
+                .SingleOrDefault();
         }
 
         public void Update(Manobra changedEntity)

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace ESTAPAR.Infrastructures.Data.Repositories
 {
@@ -27,16 +28,22 @@ namespace ESTAPAR.Infrastructures.Data.Repositories
 
         public List<Carro> GetAll()
         {
-            return EstaparDbContext.Set<Carro>().ToList();
+            return EstaparDbContext.Set<Carro>()
+                .FromSqlRaw<Carro>("spCarrosGetAll")
+                .ToList();
         }
 
         public Carro GetByKey(int key)
         {
-            return EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.CarroID == key);
+            return EstaparDbContext.Set<Carro>()
+                .FromSqlRaw<Carro>("spCarrosGetByKey {0}", key)
+                .ToList()
+                .SingleOrDefault();
         }
 
         public void Update(Carro changedEntity)
         {
+
             var dbEntity = EstaparDbContext.Set<Carro>().SingleOrDefault(x => x.CarroID == changedEntity.CarroID);
 
             EstaparDbContext.ApplyChanges(dbEntity, changedEntity);
