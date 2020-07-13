@@ -79,69 +79,18 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages.Migrations.EstaparDb
 
             string create_spCarrosGetByKey = @"CREATE procedure spCarrosGetByKey @key int as BEGIN SELECT * FROM Carros WHERE CarroID = @key END";
             migrationBuilder.Sql(create_spCarrosGetByKey);
-
-            string create_spCarrosRemoveByKey = @"CREATE procedure spCarrosRemoveByKey @key int as BEGIN DELETE FROM Carros WHERE CarroID = @key END";
-            migrationBuilder.Sql(create_spCarrosRemoveByKey);
-
-            string create_spCarrosInsert = @"CREATE procedure spCarrosInsert
-                                                    @marca varchar(max), @modelo varchar(max), @placa varchar(max) as
-                                                    BEGIN
-                                                        INSERT INTO Carros VALUES (@marca, @modelo, @placa)
-                                                    END";
-            migrationBuilder.Sql(create_spCarrosInsert);
-
-            string create_spCarrosUpdateByKey = @"CREATE procedure spCarrosUpdateByKey
-                                                    @key int, @marca varchar(max), @modelo varchar(max), @placa varchar(max) as
-                                                    BEGIN
-                                                        UPDATE Carros SET Marca = @marca, Modelo = @modelo, Placa = @placa WHERE CarroID = @key
-                                                    END";
-            migrationBuilder.Sql(create_spCarrosUpdateByKey);
-
+                        
             string create_spManobristasGetAll = @"CREATE procedure spManobristasGetAll as BEGIN SELECT * FROM Manobristas END";
             migrationBuilder.Sql(create_spManobristasGetAll);
 
             string create_spManobristasGetByKey = @"CREATE procedure spManobristasGetByKey @key int as BEGIN SELECT * FROM Manobristas WHERE ManobristaID = @key END";
             migrationBuilder.Sql(create_spManobristasGetByKey);
 
-            string create_spManobristasRemoveByKey = @"CREATE procedure spManobristasRemoveByKey @key int as BEGIN DELETE FROM Manobristas WHERE ManobristaID = @key END";
-            migrationBuilder.Sql(create_spManobristasRemoveByKey);
-
-            string create_spManobristasInsert = @"CREATE procedure spManobristasInsert
-                                                        @nome varchar(max), @CPF varchar(max), @datanascimento DATETIME as
-                                                        BEGIN
-                                                            INSERT INTO Manobristas VALUES(@nome, @CPF, @datanascimento)
-                                                        END";
-            migrationBuilder.Sql(create_spManobristasInsert);
-
-            string create_spManobristasUpdateByKey = @"CREATE procedure spManobristasUpdateByKey
-                                                        @key int, @nome varchar(max), @CPF varchar(max), @datanascimento DATETIME as
-                                                        BEGIN
-                                                            UPDATE Manobristas SET Nome = @nome, CPF = @CPF, DataNascimento = @datanascimento WHERE ManobristaID = @key
-                                                        END";
-            migrationBuilder.Sql(create_spManobristasUpdateByKey);
-
             string create_spManobrasGetAll = @"CREATE procedure spManobrasGetAll as BEGIN SELECT * FROM Manobras END";
             migrationBuilder.Sql(create_spManobrasGetAll);
 
             string create_spManobrasGetByKey = @"CREATE procedure spManobrasGetByKey @key int as BEGIN SELECT * FROM Manobras WHERE ManobraID = @key END";
             migrationBuilder.Sql(create_spManobrasGetByKey);
-
-            string create_spManobrasRemoveByKey = @"CREATE procedure spManobrasRemoveByKey @key int as BEGIN DELETE FROM Manobras WHERE ManobraID = @key END";
-            migrationBuilder.Sql(create_spManobrasRemoveByKey);
-
-            string create_spManobrasInsert = @"CREATE procedure spManobrasInsert
-                                                        @manobristaID int, @carroID int as
-                                                        BEGIN
-                                                            INSERT INTO Manobras VALUES(@manobristaID, @carroID)
-                                                        END";
-            migrationBuilder.Sql(create_spManobrasInsert);
-
-            string create_spManobrasUpdateByKey = @"CREATE procedure spManobrasUpdateByKey
-                                                        @key int, @manobristaID int, @carroID int as
-                                                        BEGIN
-                                                            UPDATE Manobras SET ManobristaID = @manobristaID, CarroID = @carroID WHERE ManobraID = @key
-                                                        END";
-            migrationBuilder.Sql(create_spManobrasUpdateByKey);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -152,44 +101,17 @@ namespace ESTAPAR.Presentations.WebAPP.RazorPages.Migrations.EstaparDb
             string drop_spCarrosGetByKey = @"DROP procedure spCarrosGetByKey";
             migrationBuilder.Sql(drop_spCarrosGetByKey);
 
-            string drop_spCarrosRemoveByKey = @"DROP procedure spCarrosRemoveByKey";
-            migrationBuilder.Sql(drop_spCarrosRemoveByKey);
-
-            string drop_spCarrosInsert = @"DROP procedure spCarrosInsert";
-            migrationBuilder.Sql(drop_spCarrosInsert);
-
-            string drop_spCarrosUpdateByKey = @"DROP procedure spCarrosUpdateByKey";
-            migrationBuilder.Sql(drop_spCarrosUpdateByKey);
-
             string drop_spManobristasGetAll = @"DROP procedure spManobristasGetAll";
             migrationBuilder.Sql(drop_spManobristasGetAll);
 
             string drop_spManobristasGetByKey = @"DROP procedure spManobristasGetByKey";
             migrationBuilder.Sql(drop_spManobristasGetByKey);
 
-            string drop_spManobristasRemoveByKey = @"DROP procedure spManobristasRemoveByKey";
-            migrationBuilder.Sql(drop_spManobristasRemoveByKey);
-
-            string drop_spManobristasInsert = @"DROP procedure spManobristasInsert";
-            migrationBuilder.Sql(drop_spManobristasInsert);
-
-            string drop_spManobristasUpdateByKey = @"DROP procedure spManobristasUpdateByKey";
-            migrationBuilder.Sql(drop_spManobristasUpdateByKey);
-
             string drop_spManobrasGetAll = @"DROP procedure spManobrasGetAll";
             migrationBuilder.Sql(drop_spManobrasGetAll);
 
             string drop_spManobrasGetByKey = @"DROP procedure spManobrasGetByKey";
             migrationBuilder.Sql(drop_spManobrasGetByKey);
-
-            string drop_spManobrasRemoveByKey = @"DROP procedure spManobrasRemoveByKey";
-            migrationBuilder.Sql(drop_spManobrasRemoveByKey);
-
-            string drop_spManobrasInsert = @"DROP procedure spManobrasInsert";
-            migrationBuilder.Sql(drop_spManobrasInsert);
-
-            string drop_spManobrasUpdateByKey = @"DROP procedure spManobrasUpdateByKey";
-            migrationBuilder.Sql(drop_spManobrasUpdateByKey);
 
             migrationBuilder.DropTable(
                 name: "Manobras");
